@@ -50,6 +50,9 @@ body, html {
     height: 100%;
     font-family: 'Poppins';
 }
+ul {
+    list-style: none;
+}
 .bg-gold { 
     background-color: var(--first-color-icon) !important;
 }
@@ -215,9 +218,9 @@ body, html {
 /*========== FEATURES ==========*/
 .features {
     background-color: var(--container-color);
-    margin-top: 1rem;
 }
 .features-container {
+    margin-top: 2rem;
     justify-content: left;
     flex-direction: row-reverse;    
     align-items: flex-start;
@@ -310,7 +313,7 @@ img[alt="Luxury Black House"] {
     justify-content: center;
     align-items: center;
 }
-.fa-dollar-sign, .fa-location-dot {
+.fa-dollar-sign, .fa-location-dot, .fa-home {
     color: var(--first-color);
 }
 
@@ -408,7 +411,7 @@ img[alt="agent"] {
     margin-top: 1.5rem;
 }
 
-/*========== CONTACT ==========*/
+/*========== GET IN TOUCH ==========*/
 .newsletter__container {
     background-color: rgb(16,6,7);
     flex-direction: row-reverse;
@@ -417,7 +420,7 @@ img[alt="agent"] {
     border: 3px solid var(--first-color);
     border-radius: 24px;
 }
-img[alt="contact-aside"] {
+img[alt="get-in-touch-aside"] {
     margin: .8rem;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 12px;
@@ -440,4 +443,58 @@ input[placeholder="Enter your email"] {
     border: none;
     height: 6vh;
     width: 28vw;
+}
+
+/*========== FOOTER ==========*/
+.footer__container {
+    height: 30vh;
+    align-items: center;
+    justify-content: left;
+}
+.footer__icon__container {
+    width: 30%;
+    display: flex;
+    color: var(--first-color);
+    justify-content: space-evenly;
+    margin-block: 1rem;
+}
+.footer__title {
+    margin-bottom: 1.7rem;
+}
+.footer__description {
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    color: var(--text-color);
+}
+.footer-list li {
+    font-size: var(--small-font-size);
+    color: var(--text-color) !important;
+    margin-bottom: .7rem;
+}
+.footer-list li a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+.footer__element {
+    width: 40%;
+    height: 25vh;
+    padding-right: 4rem;
+}
+.footer__sub__container {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.footer__element-sm {
+    width: calc(60% / 4);
+    height: 25vh;
+}
+.copyright {
+    margin-top: 4rem;
+    padding-block: .5rem;
+    width: 100%;
+    background-color: black;
+    font-size: var(--small-font-size);
+    color: white;
+    text-align: center;
 }
