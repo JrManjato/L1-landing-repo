@@ -6,6 +6,7 @@
 	--header-height: 2rem;
 	/*========== Colors ==========*/
 	--first-color: rgb(189, 112, 12);
+	--second-color: rgb(234, 214, 173);
 	--first-color-alt: rgb(48,38,36);
 	--first-color-icon: rgb(165,123,39);
 	--title-color: #161212;
@@ -44,6 +45,7 @@
     margin: 0px; 
     padding: 0px; 
     box-sizing: border-box;
+    scroll-behavior: smooth;
   }
   
 body, html {
@@ -59,6 +61,9 @@ ul {
 .gold {
     color: var(--first-color-icon);
 }
+.first-color {
+    color: var(--first-color);
+}
 .semi-gold {
     color: rgb(234, 214, 173);
 }
@@ -70,6 +75,10 @@ ul {
 }
 .txt-sm {
     font-size: var(--small-font-size);
+}
+.fa-caret-down {
+    float: right; 
+    margin-right: 1.2rem;
 }
 /*========== LAYOUT ==========*/
 .section {
@@ -107,6 +116,7 @@ ul {
     padding: 1rem 1.5rem;
 	border-radius: 0.5rem;
 	transition: 0.3s;
+    cursor: pointer;
 }
 .btn-primary {
     background-color: var(--first-color);
@@ -135,8 +145,7 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(183, 174, 174, .5);
-    color: white;
+    background-color: rgba(139, 131, 131, 0.5);
     z-index: 10;
 }
 .header-nav {
@@ -148,6 +157,8 @@ ul {
 }
 .company-logo {
     font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
 }
 .navbar {
     display: flex;
@@ -157,10 +168,45 @@ ul {
 }
 .navbar a {
     text-decoration: none;
-    color: var(--text-color-light);
     font-size: 1rem;
+    color: white;
+}
+.navbar a:hover{
+    color: rgb(234, 214, 173);
+}
+nav.borderXwidth a {
+    position: relative;
+}
+nav.borderXwidth a:before, nav.borderXwidth a:after
+{
+    position: absolute;
+    opacity: 0;
+    width: 0%;
+    height: 1.4px;
+    content: '';
+    background: rgb(234, 214, 173);
+    transition: all 0.4s;
 }
 
+nav.borderXwidth a:before
+{
+    left: 0px;
+    top: 0px;
+    margin-block: 1.8rem;
+}
+
+nav.borderXwidth a:after
+{
+    right: 0px;
+    bottom: 0px;
+    margin-block: 1.8rem;
+}
+
+nav.borderXwidth a:hover:before, nav.borderXwidth a:hover:after
+{
+    opacity: 1;
+    width: 100%;
+}
 /*========== HOME ==========*/
 .home {
     margin: auto;
@@ -177,9 +223,13 @@ ul {
     font-weight: 500;
     padding-inline: 4rem;
     font-size: 1rem;
-    background-color: rgba(183, 174, 174, .5);
+    background-color: rgba(90, 88, 88, 0.5);
 }
-
+.home__button:hover {
+    border: 1.5px solid var(--second-color);
+    color: var(--second-color);
+    background-color: rgba(44, 43, 43, 0.5);
+}
 /*========== FILTER ==========*/
 .filter {
     position: relative;
@@ -242,6 +292,14 @@ ul {
     padding-block: 1.8rem;
     text-align: justify;
 }
+.features__list {
+    background-color: white;
+    width: 80%;
+    padding-left: .5rem;
+    padding-block: .4rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
 .features-elt-container {
     justify-content: left;
     margin-block: 1rem;
@@ -253,17 +311,22 @@ ul {
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    margin-right: 1rem;
+    margin-right: .5rem;
 }
 .features-aside {
-    width: 35vw;
+    width: 100%;
     height: 57vh;
+    overflow: hidden;
 }
 img[alt="Luxury Black House"] {
     border-radius: 20px;
-    overflow: hidden;
     width: inherit;
     height: inherit;
+    transition: transform .3s;
+}
+img[alt="Luxury Black House"]:hover {
+    transform: scale(105%);
+    filter: brightness(80%);
 }
 /*========== SERVICES ==========*/
 .services {
@@ -284,6 +347,14 @@ img[alt="Luxury Black House"] {
     width: 100%;
     height: 240px;
     margin: auto;
+    overflow: hidden;
+}
+img[alt="Mancini Homes"] {
+    transition: transform .2s;
+}
+img[alt="Mancini Homes"]:hover {
+    transform: scale(110%);
+    filter: brightness(70%);
 }
 .services__image > img {
     width: inherit;
@@ -455,8 +526,9 @@ input[placeholder="Enter your email"] {
     width: 30%;
     display: flex;
     color: var(--first-color);
-    justify-content: space-evenly;
+    justify-content: left;
     margin-block: 1rem;
+    gap: 1rem;
 }
 .footer__title {
     margin-bottom: 1.7rem;
@@ -491,7 +563,7 @@ input[placeholder="Enter your email"] {
 }
 .copyright {
     margin-top: 4rem;
-    padding-block: .5rem;
+    padding-block: 1rem;
     width: 100%;
     background-color: black;
     font-size: var(--small-font-size);
